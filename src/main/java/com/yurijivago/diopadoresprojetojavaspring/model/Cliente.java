@@ -1,11 +1,10 @@
 package com.yurijivago.diopadoresprojetojavaspring.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Cliente {
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     @ManyToOne
@@ -33,5 +32,14 @@ public class Cliente {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", endereco=" + endereco +
+                '}';
     }
 }
